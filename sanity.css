@@ -1,0 +1,5 @@
+img.sanesize {
+	max-width: 300px;
+	float: left;
+	padding: 1rem;
+}
