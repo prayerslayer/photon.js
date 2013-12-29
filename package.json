@@ -1,0 +1,29 @@
+{
+  "name": "Photon",
+  "version": "1.0.0",
+  "homepage": "https://github.com/prayerslayer/photonjs",
+  "year" : "2013",
+  "description": "A tiny lightbox.",
+  "author": {
+    "name": "Nikolaus Piccolotto",
+    "email": "hello@npiccolotto.com",
+    "url": "http://npiccolotto.com",
+    "github" : "https://github.com/prayerslayer"
+  },
+  "licenses": [{
+    "type": "MIT"
+  }],
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.7.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-contrib-stylus": "0.11.x",
+    "grunt-contrib-cssmin": "0.6.x"
+  },
+  "peerDependencies": {
+    "grunt-cli": "*"
+  }
+}
