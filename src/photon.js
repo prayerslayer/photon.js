@@ -38,11 +38,11 @@
 		// public object
 		return {
 
-			display: function() {
-				fancyimg.src = imgs[ current ].src;
+			display: function( index ) {
+				fancyimg.src = imgs[ index ].src;
 				if ( options.caption ) {
-					var cap = "#" + ( current + 1 ) + " / " + imgs.length;
-					var alt = imgs[ current ].attributes.alt;
+					var cap = "#" + ( index + 1 ) + " / " + imgs.length;
+					var alt = imgs[ index ].attributes.alt;
 					if ( alt && alt.value ) {
 						cap += ": " + alt.value;
 					}
@@ -125,8 +125,8 @@
 					// show photon
 					box.classList.remove( "photon-box_invisible" );
 					// display clicked image
-					var idx = parseInt( this.attributes[ "data-photon-index" ] );
-					that.display( idx );
+					current = parseInt( this.attributes[ "data-photon-index" ] );
+					that.display( current );
 				};
 
 				// register click handler on images
