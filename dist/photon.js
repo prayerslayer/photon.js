@@ -32,6 +32,7 @@
 			box,			// container
 			caption,		// caption of image
 			bg,				// background of container
+			clickFunc,
 			imgs = doc.querySelectorAll( selector );	// all of the images
 		
 		console.debug( imgs );
@@ -52,7 +53,10 @@
 			},
 
 			stop: function() {
-
+				document.body.removeChild( box );
+				for (var i = imgs.length - 1; i >= 0; i--) {
+					imgs[i].removeEventListener( "click", clickFunc );
+				}
 			},
 
 			start: function( ) {
@@ -119,7 +123,7 @@
 					fig.appendChild( caption );
 				}
 				
-				var clickFunc = function() {
+				clickFunc = function() {
 					console.debug( "clicked", this.src );
 					// enable key events
 					active = true;
