@@ -3,9 +3,10 @@ BG_OPACITY= .75;
 IMAGE_SHADOW_COLOR = #ddd;
 IMAGE_BG_COLOR= #333;
 CAPTION_COLOR= #ddd;
-CAPTION_BG_COLOR= #777;
+CAPTION_BG_COLOR= #222;
 CAPTION_FONT_FAMILY= Helvetica, Arial, sans-serif;
 CAPTION_FONT_SIZE= 16pt;
+CAPTION_PADDING = 8pt;
 
 box-shadow( args... )
    -webkit-box-shadow args
@@ -46,13 +47,13 @@ img.photon-box__image {
 
 figcaption.photon-box__caption {
 	position: absolute;
-	font-family: CAPTION_FONT_SIZE;
+	font-family: CAPTION_FONT_FAMILY;
 	font-size: CAPTION_FONT_SIZE;
 	color: CAPTION_COLOR;
 	background-color: CAPTION_BG_COLOR;
 	left: 0;
 	bottom: CAPTION_FONT_SIZE;
-	margin: CAPTION_FONT_SIZE/2;
+	padding: CAPTION_PADDING;
 	right: 0;
 	text-align: center;
 	width: 100%;

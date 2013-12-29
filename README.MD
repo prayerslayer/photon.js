@@ -5,7 +5,6 @@ I found different Lightbox tools (such as fancybox, fancybox2, lightbox and a do
 # Status and roadmap
 
 * Should work in modern browsers (>= IE10, due to use of ``classList``). I'll add some shims/polyfills to get the same functionality for older browsers.
-* Architecture is not quite right yet. To be solved.
 * Some animations will probably be added too.
 
 # Features
@@ -20,10 +19,22 @@ Warning: This might change!
 
 Takes every ``img`` on the page:
 
-    Photon().init();
+    Photon().start();
 
 Provide a custom selector:
 
-    Photon().init( ".my-custom-image-class" );
+    Photon( ".my-custom-image-class" ).start();
 
 In case you load images dynamically you will have to call this every time.
+
+## Options
+
+Options may be passed as second argument:
+
+    Photon( ".img", {
+		caption: false
+    }).start();
+
+Available options:
+
+* caption (boolean): Whether a caption should be displayed or not. Defaults to true.

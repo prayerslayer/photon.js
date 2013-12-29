@@ -12,6 +12,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-stylus');
+  grunt.loadNpmTasks("grunt-contrib-watch" );
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -61,18 +62,18 @@ module.exports = function (grunt) {
     },
     watch: {
       concat: {
-        files: 'src/{,*/}*.js',
-        tasks: ['concat:dist', 'uglify']
+        files: 'src/*',
+        tasks: [
+          'jshint',
+          "stylus",
+          'concat',
+          'uglify',
+          "cssmin"
+        ]
       }
     }
   });
 
-  grunt.registerTask('default' , [
-    'jshint',
-    "stylus",
-    'concat',
-    'uglify',
-    "cssmin"
-  ]);
+  grunt.registerTask('default' , "watch");
 
 };

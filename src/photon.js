@@ -4,7 +4,7 @@
 	A minimalistic lightbox tool.
 */
 
-( function( win ) {
+( function( win , undef ) {
 
 	"use strict";
 
@@ -14,14 +14,15 @@
 		if ( !selector ){
 			selector = "img"; // takes all images by default
 		}
-
+		
 		if ( !options ) {
 			options = {};
 		}
 
 		// default options
 
-
+		options.caption = options.caption === undef ? true : options.caption;
+		
 		// vars
 		var active = false,	// whether key events are processed
 			current = 0,	// current image index
@@ -39,12 +40,14 @@
 
 			display: function() {
 				fancyimg.src = imgs[ current ].src;
-				var cap = "#" + ( current + 1 ) + " / " + imgs.length;
-				var alt = imgs[ current ].attributes.alt;
-				if ( alt && alt.value ) {
-					cap += ": " + alt.value;
+				if ( options.caption ) {
+					var cap = "#" + ( current + 1 ) + " / " + imgs.length;
+					var alt = imgs[ current ].attributes.alt;
+					if ( alt && alt.value ) {
+						cap += ": " + alt.value;
+					}
+					caption.innerText = cap;
 				}
-				caption.innerText = cap;
 			},
 
 			stop: function() {
@@ -109,9 +112,11 @@
 				fig.appendChild( fancyimg );
 
 				// image caption
-				caption = doc.createElement( "figcaption" );
-				caption.classList.add( "photon-box__caption" );
-				fig.appendChild( caption );
+				if ( options.caption ) {
+					caption = doc.createElement( "figcaption" );
+					caption.classList.add( "photon-box__caption" );
+					fig.appendChild( caption );
+				}
 				
 				var clickFunc = function() {
 					console.debug( "clicked", this.src );
@@ -135,4 +140,4 @@
 		};
 	};
 
-})( window );
+})( window, undefined );
