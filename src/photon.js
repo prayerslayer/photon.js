@@ -130,7 +130,7 @@
 					// show photon
 					box.classList.remove( "photon-box_invisible" );
 					// display clicked image
-					current = parseInt( this.attributes[ "data-photon-index" ] );
+					current = parseInt( this.attributes[ "data-photon-index" ].value );
 					that.display( current );
 				};
 
