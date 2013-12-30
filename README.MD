@@ -15,15 +15,10 @@ I found different Lightbox tools (such as fancybox, fancybox2, lightbox and a do
 
 # Usage
 
-Warning: This might change!
+Create a photon object, then start it:
 
-Takes every ``img`` on the page:
-
-    Photon().start();
-
-Provide a custom selector:
-
-    Photon( ".my-custom-image-class" ).start();
+    var photon = new Photon( ".image-selector" );
+    photon.start();
 
 In case you load images dynamically you will have to call this every time.
 
@@ -37,4 +32,4 @@ Options may be passed as second argument:
 
 Available options:
 
-* caption (boolean): Whether a caption should be displayed or not. Defaults to true.
+* caption (boolean): Whether the caption should be displayed or not. Defaults to true.
