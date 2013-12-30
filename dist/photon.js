@@ -20,6 +20,56 @@
 			options = {};
 		}
 
+		var Utils = {
+			classList: win.document.documentElement.classList,
+			addClass: function (elem, className) {
+				if (this.classList) {
+					elem.classList.add(className);
+				} else {
+					if (!this.hasClass(elem, className)) {
+						elem.className += (elem.className ? " " : "") + className;
+					}
+				}
+			},
+			removeClass: function (elem, className) {
+				if (this.classList) {
+					elem.classList.remove(className);
+				} else {
+					if (this.hasClass(elem, className)) {
+						elem.className = elem.className.replace(new RegExp("(^|\\s)*" + className + "(\\s|$)*", "g"), "");
+					}
+				}
+			},
+			addEvent: function( elem, evnt, func ) {
+				if ( elem.addEventListener ) {
+					// W3C DOM
+					elem.addEventListener( evnt, func, false );
+				}
+				else if ( elem.attachEvent ) {
+					// IE DOM
+					elem.attachEvent( "on" + evnt, func );
+				}
+				else {
+					// No much to do
+					elem[ evnt ] = func;
+				}
+			},
+			removeEvent: function( elem, evnt, func ) {
+				if ( elem.removeEventListener ) {
+					// W3C DOM
+					elem.removeEventListener( evnt, func, false );
+				}
+				else if ( elem.detachEvent ) {
+					// IE DOM
+					elem.detachEvent( "on" + evnt, func );
+				}
+				else {
+					// No much to do
+					elem[ evnt ] = null;
+				}
+			}
+		};
+
 		// default options
 
 		options.caption = options.caption === undef ? true : options.caption;
@@ -41,6 +91,7 @@
 		return {
 
 			display: function( index ) {
+				fancyimg.src = "";
 				fancyimg.src = imgs[ index ].src;
 				if ( options.caption ) {
 					var cap = "#" + ( index + 1 ) + " / " + imgs.length;
@@ -48,14 +99,14 @@
 					if ( alt && alt.value ) {
 						cap += ": " + alt.value;
 					}
-					caption.innerText = cap;
+					caption.textContent = cap;
 				}
 			},
 
 			stop: function() {
 				document.body.removeChild( box );
 				for (var i = imgs.length - 1; i >= 0; i--) {
-					imgs[i].removeEventListener( "click", clickFunc );
+					Utils.removeEvent( imgs[ i ], "click", clickFunc );
 					imgs[i].removeAttribute( "data-photon-index" );
 				}
 			},
@@ -101,10 +152,10 @@
 
 				// background element - closes photon on click
 				bg = doc.createElement( "div" );
-				bg.classList.add( "photon-box__background" );
+				Utils.addClass( bg, "photon-box__background" );
 				box.appendChild( bg );
-				bg.addEventListener( "click", function() {
-					box.classList.add( "photon-box_invisible" );
+				Utils.addEvent( bg, "click", function() {
+					Utils.addClass( box, "photon-box_invisible" );
 					active = false;
 				});
 
@@ -114,13 +165,13 @@
 
 				// the actual image element
 				fancyimg = doc.createElement( "img" );
-				fancyimg.classList.add( "photon-box__image" );
+				Utils.addClass( fancyimg, "photon-box__image" );
 				fig.appendChild( fancyimg );
 
 				// image caption
 				if ( options.caption ) {
 					caption = doc.createElement( "figcaption" );
-					caption.classList.add( "photon-box__caption" );
+					Utils.addClass( caption, "photon-box__caption" );
 					fig.appendChild( caption );
 				}
 				
@@ -129,7 +180,7 @@
 					// enable key events
 					active = true;
 					// show photon
-					box.classList.remove( "photon-box_invisible" );
+					Utils.removeClass( box, "photon-box_invisible" );
 					// display clicked image
 					current = parseInt( this.attributes[ "data-photon-index" ].value );
 					that.display( current );
@@ -139,7 +190,7 @@
 				// also add data attribute that holds index of image in array for convenience
 				for (var i = imgs.length - 1; i >= 0; i--) {
 					var img = imgs[ i ];
-					img.addEventListener( "click", clickFunc);
+					Utils.addEvent( img, "click", clickFunc );
 					img.setAttribute( "data-photon-index", i );
 				}
 			}
