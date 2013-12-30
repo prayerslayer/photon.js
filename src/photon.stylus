@@ -5,15 +5,38 @@ IMAGE_BG_COLOR= #333;
 CAPTION_COLOR= #ddd;
 CAPTION_BG_COLOR= #222;
 CAPTION_FONT_FAMILY= Helvetica, Arial, sans-serif;
-CAPTION_FONT_SIZE= 16pt;
-CAPTION_PADDING = 8pt;
+CAPTION_FONT_SIZE= 20px;
+CAPTION_PADDING = 20px;
+BUTTON_FONT_SIZE= 16px;
+BUTTON_SIZE = 20px;
+BUTTON_HOVER_COLOR = orange;
 
 box-shadow( args... )
-   -webkit-box-shadow args
-   -moz-box-shadow args
-   -o-box-shadow args
-   -ms-box-shadow args
-   box-shadow args
+	-webkit-box-shadow args
+	-moz-box-shadow args
+	-o-box-shadow args
+	-ms-box-shadow args
+	box-shadow args
+
+border-radius( args... )
+	-webkit-border-radius args
+	-moz-border-radius args
+	-o-border-radius args
+	-ms-border-radius args
+	border-radius args
+
+button()
+	position: absolute;
+	background-color: CAPTION_BG_COLOR;
+	color: CAPTION_COLOR;
+	font-family: CAPTION_FONT_FAMILY;
+	font-size: BUTTON_FONT_SIZE;
+	border-radius 5px;
+	cursor: pointer;
+	padding: BUTTON_SIZE;
+	text-align: center;
+	bottom: 0;
+	border: 1px solid CAPTION_COLOR;
 
 div.photon-box {
 	position: fixed;
@@ -31,6 +54,21 @@ div.photon-box__background {
 	opacity: BG_OPACITY;
 }
 
+div.photon-box__previous {
+	button()
+	right: 65px;
+}
+
+div.photon-box__next {
+	button()
+	right: 0;
+}
+
+div.photon-box__previous:hover,
+div.photon-box__next:hover {
+	background-color: BUTTON_HOVER_COLOR;
+}
+
 img.photon-box__image {
 	max-width: 80%;
 	max-height: 80%;
@@ -43,6 +81,7 @@ img.photon-box__image {
 	margin: auto;
 	background-color: IMAGE_BG_COLOR;
 	box-shadow 0px 0px 35px 10px #aaa
+	border-radius 5px
 }
 
 figcaption.photon-box__caption {
@@ -52,13 +91,13 @@ figcaption.photon-box__caption {
 	color: CAPTION_COLOR;
 	background-color: CAPTION_BG_COLOR;
 	left: 0;
-	bottom: CAPTION_FONT_SIZE;
+	bottom: 0;
 	padding: CAPTION_PADDING;
 	right: 0;
 	text-align: center;
 	width: 100%;
 }
 
-figcaption.photon-box__caption_invisible, div.photon-box_invisible {
+div.photon-box_invisible {
 	display: none;
 }
