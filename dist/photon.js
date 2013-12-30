@@ -56,6 +56,7 @@
 				document.body.removeChild( box );
 				for (var i = imgs.length - 1; i >= 0; i--) {
 					imgs[i].removeEventListener( "click", clickFunc );
+					imgs[i].removeAttribute( "data-photon-index" );
 				}
 			},
 
@@ -139,7 +140,7 @@
 				for (var i = imgs.length - 1; i >= 0; i--) {
 					var img = imgs[ i ];
 					img.addEventListener( "click", clickFunc);
-					img.attributes[ "data-photon-index" ] = i;
+					img.setAttribute( "data-photon-index", i );
 				}
 			}
 		};
