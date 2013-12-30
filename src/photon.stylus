@@ -59,6 +59,6 @@ figcaption.photon-box__caption {
 	width: 100%;
 }
 
-div.photon-box_invisible {
+figcaption.photon-box__caption_invisible, div.photon-box_invisible {
 	display: none;
 }

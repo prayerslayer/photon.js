@@ -83,6 +83,7 @@
 			caption,		// caption of image
 			bg,				// background of container
 			clickFunc,
+			typeFunc,
 			imgs = doc.querySelectorAll( selector );	// all of the images
 		
 		console.debug( imgs );
@@ -94,17 +95,21 @@
 				fancyimg.src = "";
 				fancyimg.src = imgs[ index ].src;
 				if ( options.caption ) {
-					var cap = "#" + ( index + 1 ) + " / " + imgs.length;
-					var alt = imgs[ index ].attributes.alt;
+					var cap = "",
+						alt = imgs[ index ].attributes.alt;
 					if ( alt && alt.value ) {
-						cap += ": " + alt.value;
+						cap = alt.value;
+						caption.textContent = cap;
+						Utils.removeClass( caption, "photon-box__caption_invisible" );
+					} else {
+						Utils.addClass( caption, "photon-box__caption_invisible" );
 					}
-					caption.textContent = cap;
 				}
 			},
 
 			stop: function() {
 				document.body.removeChild( box );
+				Utils.removeEvent( doc.body, typeFunc );
 				for (var i = imgs.length - 1; i >= 0; i--) {
 					Utils.removeEvent( imgs[ i ], "click", clickFunc );
 					imgs[i].removeAttribute( "data-photon-index" );
@@ -116,13 +121,13 @@
 				// build markup
 				// this is the container of all the things
 				box = doc.createElement( "div" );
-				box.classList.add( "photon-box" );
-				box.classList.add( "photon-box_invisible" );
+				Utils.addClass( box, "photon-box" );
+				Utils.addClass( box, "photon-box_invisible" );
 				// insert it as first child so it appears above everything else
 				doc.body.insertBefore( box, doc.body.firstChild );
 
 				// append key event listener on body that cycles through images
-				doc.body.addEventListener( "keydown", function( keyEvent ) {
+				typeFunc = function( keyEvent ) {
 					// break if photon is not visible
 					if ( !active ) {
 						return;
@@ -148,7 +153,8 @@
 					// index value must be valid
 					current = current < 0 ? current + imgs.length : current % imgs.length;
 					that.display( current );
-				});
+				};
+				Utils.addEvent( doc.body, "keydown", typeFunc );
 
 				// background element - closes photon on click
 				bg = doc.createElement( "div" );
