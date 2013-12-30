@@ -19,6 +19,7 @@
 			options = {};
 		}
 
+		// some cross-browser utility functions
 		var Utils = {
 			classList: win.document.documentElement.classList,
 			addClass: function (elem, className) {
@@ -83,6 +84,7 @@
 			bg,				// background of container
 			clickFunc,
 			typeFunc,
+			closeFunc,
 			imgs = doc.querySelectorAll( selector );	// all of the images
 		
 		console.debug( imgs );
@@ -132,6 +134,12 @@
 						return;
 					}
 
+					if ( keyEvent.keyCode === 27 ) {
+						// escape
+						closeFunc();
+						return;
+					}
+
 					var direction = 0;
 					if ( keyEvent.keyCode === 37 ) {
 						// left arrow
@@ -159,10 +167,11 @@
 				bg = doc.createElement( "div" );
 				Utils.addClass( bg, "photon-box__background" );
 				box.appendChild( bg );
-				Utils.addEvent( bg, "click", function() {
+				closeFunc = function() {
 					Utils.addClass( box, "photon-box_invisible" );
 					active = false;
-				});
+				};
+				Utils.addEvent( bg, "click", closeFunc );
 
 				// figure element
 				fig = doc.createElement( "figure" );
