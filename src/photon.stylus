@@ -1,6 +1,6 @@
 BG_COLOR = #333;
 BG_OPACITY= .75;
-IMAGE_SHADOW_COLOR = #ddd;
+IMAGE_SHADOW_COLOR = #ece;
 IMAGE_BG_COLOR= #333;
 CAPTION_COLOR= #ddd;
 CAPTION_BG_COLOR= #222;
@@ -9,7 +9,7 @@ CAPTION_FONT_SIZE= 20px;
 CAPTION_PADDING = 20px;
 BUTTON_FONT_SIZE= 16px;
 BUTTON_SIZE = 20px;
-BUTTON_HOVER_COLOR = orange;
+BUTTON_HOVER_COLOR = #ECE5C5;
 
 box-shadow( args... )
 	-webkit-box-shadow args
@@ -77,6 +77,7 @@ div.photon-box__previous:hover,
 div.photon-box__next:hover,
 div.photon-box__highlight {
 	background-color: BUTTON_HOVER_COLOR;
+	color: CAPTION_BG_COLOR;
 }
 
 img.photon-box__image {
