@@ -16,6 +16,10 @@ Also: It's tiny. Minified JS and CSS weigh 2.5 and 2 KB respectively, a payload 
 * Tiny: 4.5 KB in total after minification
 * Should work in all browsers
 
+# TODO
+
+* There is a tiny memory leak somewhere. (Memory increases by .1 MB after a minute of constant cycling on test site.) I'm on it.
+
 # Usage
 
 Create a photon object, then start it:
