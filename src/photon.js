@@ -11,32 +11,24 @@
 	var doc = win.document;
 	win.Photon = function( selector, options  ) {
 
-		if ( !selector ){
-			selector = "img"; // takes all images by default
-		}
-		
-		if ( !options ) {
-			options = {};
-		}
-
 		// some cross-browser utility functions
 		var Utils = {
 			classList: win.document.documentElement.classList,
-			addClass: function (elem, className) {
-				if (this.classList) {
-					elem.classList.add(className);
+			addClass: function ( elem, className ) {
+				if ( this.classList ) {
+					elem.classList.add( className );
 				} else {
-					if (!this.hasClass(elem, className)) {
-						elem.className += (elem.className ? " " : "") + className;
+					if ( !this.hasClass( elem, className ) ) {
+						elem.className += ( elem.className ? " " : "" ) + className;
 					}
 				}
 			},
-			removeClass: function (elem, className) {
-				if (this.classList) {
-					elem.classList.remove(className);
+			removeClass: function ( elem, className ) {
+				if ( this.classList ) {
+					elem.classList.remove( className );
 				} else {
-					if (this.hasClass(elem, className)) {
-						elem.className = elem.className.replace(new RegExp("(^|\\s)*" + className + "(\\s|$)*", "g"), "");
+					if ( this.hasClass( elem, className ) ) {
+						elem.className = elem.className.replace( new RegExp( "(^|\\s)*" + className + "(\\s|$)*", "g" ), "" );
 					}
 				}
 			},
@@ -70,10 +62,18 @@
 			}
 		};
 
-		// default options
+		if ( !selector ){
+			selector = "img"; // takes all images by default
+		}
 
+		if ( !options ) {
+			options = {};
+		}
+
+		// default options
 		options.caption = options.caption === undef ? true : options.caption;
 		options.emptyCaptionText = options.emptyCaptionText === undef ? "No caption" : options.emptyCaptionText;
+
 		// vars
 		var active = false,	// whether key events are processed
 			current = 0,	// current image index
@@ -88,8 +88,6 @@
 			typeFunc,
 			closeFunc,
 			imgs = doc.querySelectorAll( selector );	// all of the images
-		
-		console.debug( imgs );
 
 		// public object
 		return {
@@ -216,10 +214,9 @@
 				next.textContent = "⟶";
 				Utils.addClass( next, "photon-box__next" );
 				box.appendChild( next );
-				Utils.addEvent( next, "click", cycleFunc( 1 ) );
+				Utils.addEvent( next, "click", cycleFunc( +1 ) );
 				
 				clickFunc = function() {
-					console.debug( "clicked", this.src );
 					// enable key events
 					active = true;
 					// show photon

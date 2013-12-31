@@ -25,18 +25,27 @@ border-radius( args... )
 	-ms-border-radius args
 	border-radius args
 
+transition( args... )
+	-webkit-transition args
+	-moz-transition args
+	-o-transition args
+	-ms-transition args
+	transition args
+
 button()
 	position: absolute;
 	background-color: CAPTION_BG_COLOR;
 	color: CAPTION_COLOR;
 	font-family: CAPTION_FONT_FAMILY;
 	font-size: BUTTON_FONT_SIZE;
+	font-weight: bold;
 	border-radius 5px;
 	cursor: pointer;
 	padding: BUTTON_SIZE;
 	text-align: center;
 	bottom: 0;
 	border: 1px solid CAPTION_COLOR;
+	transition background-color .2s;
 
 div.photon-box {
 	position: fixed;
@@ -65,7 +74,8 @@ div.photon-box__next {
 }
 
 div.photon-box__previous:hover,
-div.photon-box__next:hover {
+div.photon-box__next:hover,
+div.photon-box__highlight {
 	background-color: BUTTON_HOVER_COLOR;
 }
 
