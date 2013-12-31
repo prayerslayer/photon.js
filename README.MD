@@ -16,10 +16,6 @@ Also: It's tiny. Minified JS and CSS weigh 2.5 and 2 KB respectively, a payload 
 * Tiny: 4.5 KB in total after minification
 * Should work in all browsers
 
-# TODO
-
-* There is a tiny memory leak somewhere. (Memory increases by .1 MB after a minute of constant cycling on test site.) I'm on it.
-
 # Usage
 
 Create a photon object, then start it:
@@ -42,7 +38,7 @@ Options may be passed as second argument:
 Available options:
 
 * ``caption`` (boolean): Whether the caption should be displayed or not. Defaults to ``true``.
-* `emptyCaptionText`` (String): What should be displayed if there is no alt text available. Defaults to ``"No caption"`.
+* ``emptyCaptionText`` (String): What should be displayed if there is no alt text available. Defaults to ``"No caption"`.
 
 # Customization
 
