@@ -146,8 +146,8 @@
 				box = win.document.createElement( "div" );
 				Utils.addClass( box, "photon-box" );
 				Utils.addClass( box, "photon-box_invisible" );
-				// insert it as first child so it appears above everything else
-				win.document.body.insertBefore( box, win.document.body.firstChild );
+				// insert it as last child so it appears above everything else
+				win.document.body.appendChild( box );
 
 				// append key event listener on body that cycles through images
 				typeFunc = function typeFunc( keyEvent ) {
