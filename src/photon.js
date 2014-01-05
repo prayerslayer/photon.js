@@ -95,7 +95,12 @@
 			"display": function display( index ) {
 				// set src
 				fancyimg.src = "";
-				fancyimg.src = imgs[ index ].attributes.src.value;
+				var fullsize = imgs[ index ].attributes[  "data-photon-fullsize" ];
+				if ( fullsize ) {
+					fancyimg.src = fullsize.value;
+				} else {
+					fancyimg.src = imgs[ index ].attributes.src.value;
+				}
 				// set caption if wanted and available
 				if ( options.caption ) {
 					var cap = "",
