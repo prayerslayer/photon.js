@@ -4,6 +4,8 @@ I wasn't quite satisfied with available lightbox tools (such as [fancybox](http:
 
 So here's a really simple lightbox: **Photon**. It puts images of your choice in a lightbox. There are click controls to cycle through the images and they have a fixed position. Alternatively feel free to use your keyboard (arrow keys left/right and escape). Close Photon by clicking on the grey area. That's it. 
 
+![Photon](https://npiccolotto.com/media/img/photonjs.png)
+
 Also: It's tiny. Minified JS and CSS weigh 4 KB combined. Because it's a jQuery Plugin since version 2	 it works in ALL of the browsers.
 
 # Features
@@ -13,7 +15,7 @@ Also: It's tiny. Minified JS and CSS weigh 4 KB combined. Because it's a jQuery 
 * Exit lightbox with click on background or Escape key
 * Shows image caption (alt text) if you want to
 * Lacks animations for the most part
-* Tiny: 4.5 KB in total after minification
+* Tiny: 4 KB in total after minification
 * Should work in all browsers
 
 # Usage
