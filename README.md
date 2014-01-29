@@ -16,6 +16,10 @@ Also: It's tiny. Minified JS and CSS weigh 4 KB combined. Because it's a jQuery 
 * Tiny: 4 KB in total after minification
 * Works in all browsers that your jQuery version supports
 
+# Demo
+
+Available [here](http://rawgithub.com/prayerslayer/photon.js/master/demo/index.html).
+
 # Usage
 
 Select your images and call ``Photon`` on them.
