@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Photon.js by prayerslayer</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Photon.js</h1>
+        <p>A tiny lightbox tool.</p>
+
+        <p class="view"><a href="https://github.com/prayerslayer/photon.js">View the Project on GitHub <small>prayerslayer/photon.js</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/prayerslayer/photon.js/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/prayerslayer/photon.js/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/prayerslayer/photon.js">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="photon" class="anchor" href="#photon"><span class="octicon octicon-link"></span></a>Photon</h1>
+
+<p>I wasn't quite satisfied with available lightbox tools (such as <a href="http://fancyapps.com/fancybox/">fancybox</a>, <a href="http://lokeshdhakar.com/projects/lightbox/">lightbox</a>, <a href="http://lokeshdhakar.com/projects/lightbox2/">lightbox2</a> and <a href="http://www.jacklmoore.com/colorbox/">colorbox</a>, to name a few). Somehow I always felt they do too much. Too long animations. Next/previous controls that change their position. Spinners that look too playful and don't fit on my page.</p>
+
+<p>So here's a really simple lightbox: <strong>Photon</strong>. It puts images of your choice in a lightbox. There are click controls to cycle through the images and they have a fixed position. Alternatively feel free to use your keyboard (arrow keys left/right and escape). Close Photon by clicking on the grey area. That's it. </p>
+
+<p>Also: It's tiny. Minified JS and CSS weigh 4 KB combined. Because it's a jQuery Plugin since version 2 it works in ALL of the browsers.</p>
+
+<h1>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h1>
+
+<ul>
+<li>Puts images in a lightbox</li>
+<li>Browse through images with arrow keys or click targets</li>
+<li>Exit lightbox with click on background or Escape key</li>
+<li>Shows image caption (alt text) if you want to</li>
+<li>Lacks animations for the most part</li>
+<li>Tiny: 4 KB in total after minification</li>
+<li>Works in all browsers that your jQuery version supports</li>
+</ul><h1>
+<a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h1>
+
+<p>Available <a href="http://rawgithub.com/prayerslayer/photon.js/master/demo/index.html">here</a>.</p>
+
+<h1>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h1>
+
+<p>Select your images and call <code>Photon</code> on them.</p>
+
+<pre><code>$( "img" ).Photon();
+</code></pre>
+
+<p>That's about it. If you'd like to group certain photos (because Photon cycles them), you need to call <code>Photon()</code> on every group.</p>
+
+<h2>
+<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h2>
+
+<p>Options may be passed as an argument:</p>
+
+<pre><code>$( "img" ).Photon({
+    caption: false
+});
+</code></pre>
+
+<p>Available options:</p>
+
+<ul>
+<li>
+<code>caption</code> (boolean): Whether the caption should be displayed or not. Takes the <code>title</code> or, if unavailable, <code>alt</code> attribute of the image. Defaults to <code>true</code>.</li>
+<li>
+<code>emptyCaptionText</code> (String): What should be displayed if there is no alt text available. Defaults to `<code>"No caption"</code>.</li>
+</ul><h1>
+<a name="customization" class="anchor" href="#customization"><span class="octicon octicon-link"></span></a>Customization</h1>
+
+<p>Please feel free to alter Stylus variables in <code>src/photon.stylus</code> as you wish.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/prayerslayer">prayerslayer</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
