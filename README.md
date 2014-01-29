@@ -44,3 +44,9 @@ Available options:
 # Customization
 
 Please feel free to alter Stylus variables in ``src/photon.stylus`` as you wish.
+
+# Release Notes
+
+v1.0.0: First release
+v1.0.1: Fixed a bug where ``photon-box`` was appended to ``body`` as first child.
+v2.0.0: Rewrote Photon to a jQuery plugin, because I learned that event handling in old IE versions is weirder than I thought. Also I'm using Backbone for my project anyway, so there's actually no need to exclude jQuery.
