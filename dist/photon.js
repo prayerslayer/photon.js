@@ -75,6 +75,8 @@
 		}
 
 		function type( keyEvent ) {
+			var direction = 0;
+			
 			// break if photon is not visible
 			if ( !active ) {
 				return;
@@ -86,7 +88,6 @@
 				return;
 			}
 
-			var direction = 0;
 			if ( keyEvent.keyCode === 37 ) {
 				// left arrow
 				direction = -1;
