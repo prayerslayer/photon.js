@@ -4,6 +4,8 @@
 	<head>
 		<title>Photon test and demo site</title>
 		<meta charset="utf-8"/>
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="../src/photon.js"></script>
 		<link rel="stylesheet" href="sanity.css">
 		<link href="../dist/photon.css" rel="stylesheet" />
 	</head>
@@ -18,11 +20,12 @@
 	<img class="sanesize" src="http://rsd.gsfc.nasa.gov/rsd/images/Panorama_lg.jpg" alt="">
 	<img class="sanesize" src="http://doyouremember.com/wp-content/uploads/2013/04/babygif.gif" alt="">
 
-	<script src="../dist/photon.js"></script>
+	
 	<script>
-		var photon = new Photon( "img", {
-			"caption": true
+		$( document ).ready( function() {
+			$( "img" ).Photon({
+				"caption": true
+			});
 		});
-		photon.start( );
 	</script>
 </html>
