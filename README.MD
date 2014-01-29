@@ -4,7 +4,7 @@ I wasn't quite satisfied with available lightbox tools (such as [fancybox](http:
 
 So here's a really simple lightbox: **Photon**. It puts images of your choice in a lightbox. There are click controls to cycle through the images and they have a fixed position. Alternatively feel free to use your keyboard (arrow keys left/right and escape). Close Photon by clicking on the grey area. That's it. 
 
-Also: It's tiny. Minified JS and CSS weigh 2.5 and 2 KB respectively, a payload of 4.5 KB in total. Though I tested only in latest Chrome and Firefox, Photon should work in ALL of the browsers. Yes, even IE 6. Please open an issue if you encounter problems.
+Also: It's tiny. Minified JS and CSS weigh 4 KB combined. Because it's a jQuery Plugin since version 2	 it works in ALL of the browsers.
 
 # Features
 
@@ -18,26 +18,23 @@ Also: It's tiny. Minified JS and CSS weigh 2.5 and 2 KB respectively, a payload 
 
 # Usage
 
-Create a photon object, then start it:
+Select your images and call ``Photon`` on them.
 
-    var photon = new Photon( ".image-selector" );
-    photon.start();
+    $( "img" ).Photon();
 
-In case you load images dynamically you will have to call this every time. If you leave the image selector out, it will use ``"img"``.
-
-If you're finished, you can call ``photon.stop()``.
+That's about it. If you'd like to group certain photos (because Photon cycles them), you need to call ``Photon()`` on every group.
 
 ## Options
 
-Options may be passed as second argument:
+Options may be passed as an argument:
 
-    Photon( ".img", {
+    $( "img" ).Photon({
 		caption: false
     }).start();
 
 Available options:
 
-* ``caption`` (boolean): Whether the caption should be displayed or not. Defaults to ``true``.
+* ``caption`` (boolean): Whether the caption should be displayed or not. Takes the ``title`` or, if unavailable, ``alt`` attribute of the image. Defaults to ``true``.
 * ``emptyCaptionText`` (String): What should be displayed if there is no alt text available. Defaults to ``"No caption"`.
 
 # Customization
