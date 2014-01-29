@@ -49,7 +49,7 @@
 			// set caption if wanted and available
 			if ( options.caption ) {
 				var cap = "",
-					alt = img.attr( "alt" );
+					alt = img.attr( "title" ) || img.attr( "alt" );
 				if ( alt ) {
 					cap = alt;
 				} else {
